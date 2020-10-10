@@ -18,7 +18,9 @@
 
 本人使用的环境为:
 CPU:lntel(R)Core(TM)i7-7700HQ CPU@2.80GHz
+
 GPU:NVDIA GeForce GTX 1060
+
 不建议使用cpu训练一轮训练要24小时以上(20万数据集)
 
 # 1.项目环境安装与启动
