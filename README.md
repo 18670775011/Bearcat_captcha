@@ -145,7 +145,7 @@ pip install -r requirements.txt -i https://pypi.douban.com/simple
 ### 第九步:评估模型
 
     丹药出来后要看一下是几品丹药
-    运行test_model.py
+    运行test.py
 
 ### 第十步:开启后端
 
