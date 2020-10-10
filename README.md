@@ -3,7 +3,7 @@
 ## 本自述文件会自述以下内容
 ##### 1.项目环境安装与启动
         1.1 GPU环境安装
-        1.2 项目启动
+        1.2 运行项目
 ##### 2.项目结构描述
         2.1项目结构描述
 ##### 3.识别验证码的思路
@@ -17,8 +17,9 @@
 ***注意任何时候你都应该备份你的数据集，数据集来之不易***
 
 本人使用的环境为:
-CPU:lntel(R)Core(TM)i7-7700HQ CPU@2.80GHz * 8
+CPU:lntel(R)Core(TM)i7-7700HQ CPU@2.80GHz
 GPU:NVDIA GeForce GTX 1060
+不建议使用cpu训练一轮训练要24小时以上(20万数据集)
 
 # 1.项目环境安装与启动
 ## 1.1 GPU环境安装
@@ -43,7 +44,7 @@ pip install tensorflow==2.2 -i https://pypi.douban.com
 pip install -r requirements.txt -i https://pypi.douban.com/simple
 	
 	tennsorflow2.1
-	1.安装CUDA 11版本 (官网)[https://developer.nvidia.com/cuda-toolkit]
+    1.安装CUDA 11版本 (官网)[https://developer.nvidia.com/cuda-toolkit]
     2.由于CUDA会自动配好环境本项目不在详述 在命令行输入 nvcc -V 查看CUDA版本
     3.安装conda (推荐在清华镜像站下载Anaconda或者Miniconda都可以)
     4.更新一下conda (conda update -n base conda)
@@ -71,14 +72,14 @@ pip install -r requirements.txt -i https://pypi.douban.com/simple
     7.安装cudnn (conda install cudatoolkit=10.1 cudnn=7.6.5)
     8.再安装其他依赖 (pip install -r requirements.txt -i https://pypi.douban.com/simple)
     
-## 1.2 项目启动
+## 1.2 运行项目
 
 ### 注意(项目基于tensorflow2.2(2.3也可以))
     项目的输入图片的格式为.jpg
     不是.jpg后缀也不用慌本项目有修改后缀的代码
     后面会介绍
 
-### 项目启动
+### 运行项目
     ps:不想自己练的拉取分支
     直接运行app.py
     默认开启5006端口,post请求接受一个参数img
@@ -103,7 +104,7 @@ pip install -r requirements.txt -i https://pypi.douban.com/simple
 
 ### 如果你的标注数据是一坨的话按照下面步骤区分开来(必须先区分好数据在进行下一步)
 
-    1.将一坨数据放到train_dataset文件夹
+    1.将一坨数据放到train_dataset文件夹(一坨指的是全部数据集在同一文件夹内)
 
     2.运行move_path.py
       python move_path.py
@@ -132,7 +133,7 @@ pip install -r requirements.txt -i https://pypi.douban.com/simple
 
 ### 第七步:开始训练
 
-    运行train_run.py
+    运行train.py
 
     
 ### 第八步:开启可视化(这步可以省略)
@@ -262,7 +263,7 @@ pip install -r requirements.txt -i https://pypi.douban.com/simple
 ### app.py
     开启后端
 
-### Callback.py
+### callback.py
     回调函数参考
     [keras中文官网](https://keras.io/zh/callbacks/)
     运行该文件会返回一个损失最小的权重文件
@@ -278,11 +279,11 @@ pip install -r requirements.txt -i https://pypi.douban.com/simple
 ### cheak_file.py
 	检查数据集图片的高和宽
 
-### del_file.py
+### delete_file.py
     删除所有数据集的文件
     这里是防止数据太多手动删不动
     
-### Function_API.py
+### utils.py
     项目核心，三大类
     Image_Processing
     图片处理和标签处理
@@ -338,10 +339,10 @@ pip install -r requirements.txt -i https://pypi.douban.com/simple
     运行后会修改为
     test_01.jpg
 
-### test_model.py
+### test.py
     读取模型进行测试
 
-### train_run.py
+### train.py
     开始训练
 
 
