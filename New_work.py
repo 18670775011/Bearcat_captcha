@@ -865,9 +865,11 @@ def parse_function(exam_proto, mode=MODE):
         label_tensor = parsed_example['label']
         return (img_tensor, label_tensor)
     elif mode == 'NUM_CLASSES':
+        with open(n_class_file, 'r', encoding='utf-8') as f:
+        make_dict = json.loads(f.read())
         features = {{
             'image': tf.io.FixedLenFeature([], tf.string),
-            'label': tf.io.FixedLenFeature([], tf.float32)
+            'label': tf.io.FixedLenFeature([len(make_dict)], tf.float32)
         }}
         parsed_example = tf.io.parse_single_example(exam_proto, features)
         img_tensor = tf.image.decode_jpeg(parsed_example['image'], channels=IMAGE_CHANNALS)
