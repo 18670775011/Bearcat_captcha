@@ -307,6 +307,9 @@ else:
 def cheak_image(image):
     with open(image, 'rb') as image_file:
         image = Image.open(image_file)
+        if image.mode != 'RGB':
+            logger.error(f'{{image}}模式为{{image.mode}}')
+            return False
         width, height = image.size
         width_list.append(width)
         height_list.append(height)
