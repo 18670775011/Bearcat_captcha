@@ -643,7 +643,7 @@ class Image_Processing(object):
     @classmethod
     def preprosess_save_images(self, image, number):
         logger.info(f'开始处理{{image}}')
-        name = re.split('_', os.path.splitext(os.path.split(image)[-1])[0])[0]
+        name = os.path.splitext(image)[0]
         datagen = tf.keras.preprocessing.image.ImageDataGenerator(featurewise_center=False,
                                                                   samplewise_center=False,
                                                                   featurewise_std_normalization=False,
