@@ -869,7 +869,7 @@ def parse_function(exam_proto, mode=MODE):
         return (img_tensor, label_tensor)
     elif mode == 'NUM_CLASSES':
         with open(n_class_file, 'r', encoding='utf-8') as f:
-        make_dict = json.loads(f.read())
+            make_dict = json.loads(f.read())
         features = {{
             'image': tf.io.FixedLenFeature([], tf.string),
             'label': tf.io.FixedLenFeature([len(make_dict)], tf.float32)
