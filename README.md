@@ -82,7 +82,7 @@ pip install -r requirements.txt -i https://pypi.douban.com/simple
     后面会介绍
 
 ### 运行项目
-    ps:不想自己练的拉取分支
+    ps:不想自己练的拉取olded分支
     直接运行app.py
     默认开启5006端口,post请求接受一个参数img
     需要base64一下,具体请看spider_example.py
