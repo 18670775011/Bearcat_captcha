@@ -755,6 +755,8 @@ class WriteTFRecord(object):
     @staticmethod
     def pad_image(image_path):
         image = Image.open(image_path)
+        if image.mode != 'RGB':
+            image = image.convert('RGB')
         while True:
             width, height = image.size
             if IMAGE_HEIGHT < height:
@@ -907,6 +909,8 @@ class Predict_Image(object):
         try:
             with open(image, 'rb') as image_file:
                 image = Image.open(image_file)
+                if image.mode != 'RGB':
+                    image = image.convert('RGB')
                 while True:
                     width, height = image.size
                     if IMAGE_HEIGHT < height:
@@ -929,7 +933,7 @@ class Predict_Image(object):
             try:
                 image_file = io.BytesIO(image)
                 image = Image.open(image_file)
-                if image.mode == "P":
+                if image.mode != "RGB":
                     image = image.convert('RGB')
                 while True:
                     width, height = image.size
