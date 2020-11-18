@@ -10,3 +10,4 @@ pandas
 captcha
 pydot-ng
 graphviz
+plot_model
